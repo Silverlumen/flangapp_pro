@@ -46,7 +46,7 @@ workflows:
          -----END RSA PRIVATE KEY-----
          
 
-        BUNDLE_ID: "app.example.com"
+        BUNDLE_ID: "msk.sovetdoma.app"
       flutter: 3.16.7
       xcode: latest
       cocoapods: default
@@ -83,4 +83,4 @@ workflows:
       scripts:
         - name: HTTP notification
           script: |
-            curl https://flangapi.impeltech.ru:8443/public/observe/notice?uid=f324b1b7-412a-bc62-5c11-1ba4df059e13
+            curl https://flangapi.impeltech.ru:8443/public/observe/notice?uid=2d705127-3e16-2b7f-b630-736f1bbb6561
