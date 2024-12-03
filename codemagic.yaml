@@ -7,42 +7,42 @@ workflows:
         XCODE_WORKSPACE: "Runner.xcworkspace"
         XCODE_SCHEME: "Runner"
         APP_STORE_CONNECT_ISSUER_ID: 6TVX9G68UR
-        APP_STORE_CONNECT_KEY_IDENTIFIER: PGZF46PXCZ
+        APP_STORE_CONNECT_KEY_IDENTIFIER: 9UCR8LTRDF
         APP_STORE_CONNECT_PRIVATE_KEY: |-
          -----BEGIN PRIVATE KEY-----
-         MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQg/M2wl83jjV1hvNVg
-         1zdehvV93qXE0F0UEYeFV8rrSK6gCgYIKoZIzj0DAQehRANCAAQkQFz518Kwhur9
-         HxKg9hdX9FlhYzJoCs7ImXsRhc6o8YmyG6ZAxc82TujvW0bC6cEfJl0qcuJQ5ci6
-         tJpZzIy+
+         MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgLP1/4wmXafTEyw1Y
+         8zSafm+fzxJ0JEy595m4C8rgSsWgCgYIKoZIzj0DAQehRANCAATDGrfrm3ulmiF6
+         7SC0iaPWNMBtYyELXygDOIOtZgMbVfXWjXr3u9+oQNBytot8m7qvbsj5pKFM9+7o
+         SBj3E0p5
          -----END PRIVATE KEY-----
 
         CERTIFICATE_PRIVATE_KEY: |-
          -----BEGIN RSA PRIVATE KEY-----
-         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
+         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
          -----END RSA PRIVATE KEY-----
          
 
@@ -83,4 +83,4 @@ workflows:
       scripts:
         - name: HTTP notification
           script: |
-            curl https://flangapi.impeltech.ru:8443/public/observe/notice?uid=2d705127-3e16-2b7f-b630-736f1bbb6561
+            curl https://flangapi.impeltech.ru:8443/public/observe/notice?uid=e971405c-23c2-274c-c419-ea43dd59f8fb
