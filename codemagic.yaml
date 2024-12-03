@@ -1,35 +1,86 @@
 workflows:
-  android-workflow:
-    name: Flangapp PRO Android apk
+  ios-workflow:
+    name: Flangapp PRO iOS without publication
     max_build_duration: 30
     environment:
       vars:
-        PACKAGE_NAME: "app.example.com"
-        VERSION_NAME: "1.0.$BUILD_NUMBER"  # Tạo version name duy nhất bằng cách kết hợp với BUILD_NUMBER
-        BUILD_NUMBER: $BUILD_NUMBER  # Sử dụng số bản build từ Codemagic để đảm bảo tính duy nhất cho version code
+        XCODE_WORKSPACE: "Runner.xcworkspace"
+        XCODE_SCHEME: "Runner"
+        APP_STORE_CONNECT_ISSUER_ID: 6TVX9G68UR
+        APP_STORE_CONNECT_KEY_IDENTIFIER: PGZF46PXCZ
+        APP_STORE_CONNECT_PRIVATE_KEY: |-
+         -----BEGIN PRIVATE KEY-----
+         MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQg/M2wl83jjV1hvNVg
+         1zdehvV93qXE0F0UEYeFV8rrSK6gCgYIKoZIzj0DAQehRANCAAQkQFz518Kwhur9
+         HxKg9hdX9FlhYzJoCs7ImXsRhc6o8YmyG6ZAxc82TujvW0bC6cEfJl0qcuJQ5ci6
+         tJpZzIy+
+         -----END PRIVATE KEY-----
+
+        CERTIFICATE_PRIVATE_KEY: |-
+         -----BEGIN RSA PRIVATE KEY-----
+         MIIEoQIBAAKCAQEAyOcE+9OKa5kZF6MFXzP6qelCmzmp9N9RVsVxW02G9mtFfemg
+         W7/qNWMwes8R/L5qfXNE22tfxWBk0RL7FJ81RtVmI0vf5UH8A36bZ1COLI3k85nk
+         9I/tC1tAu2FJmhIHJJMPtCIRrT94fdf0fxEWUcmXVfCNJqbR5RG10vYiLNaQTCkC
+         eGdW7cMEa8jop2qW9hlZHYeowcWdaSuTV+ufzbvmMKSwI5OBYPLGWM0mrBm8S3iB
+         zpqJlX/buf0Gl4ldNYOhoRjNLGWbJ93JQ6SY4efMo5nmu+0XMgcbfNXMCt6qFbaV
+         O4mhNkwSaaY4Zz7RJ5Osf1PZFFzZG0+rrw/+mwIDAQABAoH/eT7zQwfoAgfjnOBF
+         3a8BGIouKIAkkiQ0cqm2P+QKD62tws+8d6LbNl0mZPeTY3WHzy5B4CptIjGKpqNN
+         5KQxAw7HFYY1Gac48OL35uI266y3AE1gYDh8Vt47stqEEPfQV8JpN81X3bbwgQJU
+         DFvDnJiNPNBwX2NOSXDmyurAtU224z5r1LQ/wXqioc/zOhgiwyY1Q7eJH9pM3GWx
+         FDQsnTpnc5updCH2ZthospYXixCqArz/MRVvmi0DZEm+KjzLSnP5EXBpOuS0vKdW
+         IzsizLFO4x/bytYIbseoULwXxv/vYdjM3QXmOdahy+1ZRBi6uvWSXWv0t9MVw5a3
+         YeftAoGBAOqmC4mxQgEDARXLA7TAWCG7O6Jd3wiypnZpE0wx/L3DVSJryLE5Ny7G
+         QA/Z+KktdvZ06r+xzy4lBIYx30NDdlNx1Lcq4EFsW6jj6KoqCcH0ej7Y5UIz1aa6
+         ZRnoG8h+v68fo1oUQlAzZBtjj1qZrh78aEq4M5qscBugnYigkZGfAoGBANsu4iNS
+         H2dhrjqp+G6o3NWSNmkDt951NaVnU9dX0KNguZUTi3H4yP4K3HNRRYMUVI1gPjY3
+         LBPhzFVrct+TEkcGYW4nqUDoIT/tMyLCgLQUpopYfLo1v+j617Uz+SFaQkC/wbzg
+         UnrZ6q+NCIqikzBiXWsuslpXuAs1pOnwd0mFAoGAYX6IQLezsvPqmYF2kr1wYOOI
+         jZfvOY/w9jYGXJxQZRAp6VlbU7dwJDEfIPbyCGjpitFdUDSy3ntm+9Lw7uOy4Ezl
+         kw1vi/9Xvj6jx0AcOcg4mrBH4U/kL5g2taLpGE8BmePNXXoZa3VO3MprH7vGyv0Y
+         4CLU3ilTk0cS7Ve55AUCgYEAy1BaBFmRN9ysOU6hXETXVGUkg5UnYftnn96RLxgO
+         OP7oJxjSKQ6VotGAXJfu2wBozhuQmcnj4S161WGuVSWftrJ8fincHpE1Bo+I951k
+         tabSNVKPoEtrkTneDgAAAKgw/M7jb8jFuZ+ayu0QF0lnL2KPNXVDi/oChqNkLn0Y
+         qeECgYAJ/ukky+abihfFsMB7Rpe4owIsDpqzzqPu6pMn8s9AAbfnpF773ZAopYZe
+         xfR5vbF3niaktH2M5t0JDYWI9GHyRcXO9nbEmMxs0ZWd1QCvP2mj3NVQ5xtdl3rS
+         VH1KmAR8wqcIBijuwqpUd1B0kcYBue3pNKDPP0m6zrz8L97PTg==
+         -----END RSA PRIVATE KEY-----
+         
+
+        BUNDLE_ID: "app.example.com"
       flutter: 3.16.7
       xcode: latest
       cocoapods: default
     scripts:
-      - name: Set up local.properties
+      - name: Set up keychain to be used for codesigning using Codemagic CLI 'keychain' command
         script: |
-          echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/android/local.properties"
+          keychain initialize
+      - name: Fetch signing files
+        script: |
+          app-store-connect fetch-signing-files $BUNDLE_ID --type IOS_APP_STORE --create --log-api-calls --verbose
+      - name: Use system default keychain
+        script: |
+          keychain add-certificates
+      - name: Set up code signing settings on Xcode project
+        script: |
+          xcode-project use-profiles
       - name: Get Flutter packages
         script: |
           cd . && flutter packages pub get
       - name: Install pods
         script: |
           find . -name "Podfile" -execdir pod install \;
-      - name: Build APK with Flutter
+      - name: Flutter build ipa and automatic versioning
         script: |
-          cd . && flutter build apk --release --no-tree-shake-icons --build-name=$VERSION_NAME --build-number=$BUILD_NUMBER
+          flutter build ipa --release --no-tree-shake-icons \
+          --build-name=1.0.0 \
+          --build-number=1 \
+          --export-options-plist=/Users/builder/export_options.plist
     artifacts:
-      - build/**/outputs/**/*.apk
-      - build/**/outputs/**/*.aab
-      - build/**/outputs/**/mapping.txt
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
       - flutter_drive.log
     publishing:
       scripts:
         - name: HTTP notification
           script: |
-            curl https://flangapi.impeltech.ru:8443/public/observe/notice?uid=ea89ee68-a1aa-0fbe-61df-24f770c7a048
+            curl https://flangapi.impeltech.ru:8443/public/observe/notice?uid=f324b1b7-412a-bc62-5c11-1ba4df059e13
